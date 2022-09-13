@@ -1,0 +1,27 @@
+GithubLink:https://github.com/BARANIDHARAN-S-Git/simplilearn-oopsproject
+
+
+
+step1:create a class student where ,I created the property for the name,class and section.
+
+step2:create a class teacher where,I created the property for the name,class,section and subject.
+
+step3:create a class subject where,I created the property for the name and subjectcode.
+
+step4:student class,teacher class and subject class has the method for getting the details from the user and the another method to print the details.
+
+step4:In this I used List to store the details.
+
+step5:In the program.cs file inside main .I have used object to call each class.
+
+step6:I used switchcase to ask the user whether we want to insert or print the data.
+
+step7:After Respone from the user,If the user want to input the data,then it again ask whether ,I want to insert in student or subject or teacher.
+
+step8:After Response from user,if example:user entered to input the student details ,it will ask the student name,class and section,Similarly to all.
+
+step9:After giving input,next it will again ask whether we want to continue the process or exit the process.
+
+step10:If we want to continue ,we can continue and now we can see the inserted details by giving particular option print,It will display the respected details.
+
+step10:After again it will ask whether we want to continue or exit ,If we give exit ,It will end the process and dsplay message : "Thank you process ended."

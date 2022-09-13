@@ -1,0 +1,336 @@
+GithubLink:https://github.com/BARANIDHARAN-S-Git/simplilearn-oopsproject
+
+------------------program.cs--------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
+
+namespace oops
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            student s = new student();
+
+
+            Teacher t = new Teacher();
+
+
+            Subject su = new Subject();
+            bool output = false;
+            do
+            {
+                Console.WriteLine("Enter any one option shown in Menu below :");
+                Console.WriteLine("Menu : \n1)Insert the details \n2)Print the details");
+                int number = Convert.ToInt32(Console.ReadLine());
+                if (number == 1)
+                {
+                    Console.WriteLine("Enter any one option shown in Menu below :");
+                    Console.WriteLine("Menu : \n1)Insert the student details \n2)Insert the Teacherdetails \n3)Insert the Subjectdetails");
+                    int insert = Convert.ToInt32(Console.ReadLine());
+                    switch (insert)
+                    {
+
+                        case 1:
+                            s.getstudentsdetails();
+                            break;
+                        case 2:
+                            t.getteacherdetails();
+                            break;
+                        case 3:
+                            su.getsubjectdetails();
+
+                            break;
+                        default:
+                            Console.WriteLine("Sorry,You have entered the invalid number");
+                            break;
+                    }
+                }
+
+
+                if (number == 2)
+                {
+                    Console.WriteLine("Enter any one option shown in Menu below :");
+                    Console.WriteLine("Menu : \n1)print the student details \n2)print the Teacherdetails \n3)print the Subjectdetails");
+                    int print = Convert.ToInt32(Console.ReadLine());
+                    switch (print)
+                    {
+                        case 1:
+                            s.printstudentdetails();
+                            Console.WriteLine("-------------------");
+                            break;
+                        case 2:
+                            t.printteacberdetails();
+                            Console.WriteLine("-------------------");
+                            break;
+                        case 3:
+
+                            su.printsubjectdetails();
+
+                            break;
+                        default:
+                            Console.WriteLine("Sorry,You have not inserted the details for this or you have entered the invalid number");
+                            break;
+                    }
+                }
+
+                Console.WriteLine("Do u want to continue the process or leave the process");
+                Console.WriteLine("Menu \n1)Cotinue the process \n2)Leave the process");
+                int ex=Convert.ToInt32(Console.ReadLine());
+                if (ex == 1)
+                {
+                    output = false;
+                }
+                else
+                {
+                    output= true;
+                }
+            } while (output != true);
+
+
+
+            Console.WriteLine("Thank you process ended");
+        }
+      
+
+    }
+    
+}
+
+
+-------------------------------student.cs--------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace oops
+{
+    public class student
+    {
+
+        private string _studentname;
+
+        public string strudentname
+        {
+            get { return _studentname; }
+            set { _studentname = value; }
+        }
+
+        private int _classofstudent;
+
+        public int classofstudent
+        {
+            get { return _classofstudent; }
+            set { _classofstudent = value; }
+
+        }
+
+        private string _section;
+
+        public string section
+        {
+            get
+            {
+                return _section;
+            }
+            set
+            {
+                _section = value;
+            }
+        }
+
+        List<student> stud=new List<student>();
+        public void getstudentsdetails()
+
+        {
+            student st = new student();
+            Console.WriteLine("Enter the student name :");
+            st.strudentname = Console.ReadLine();
+            Console.WriteLine("Enter the class of the student");
+            st.classofstudent = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter section ofthe student");
+            st.section = Console.ReadLine();
+            stud.Add(st);
+
+        }
+        public void printstudentdetails()
+        {
+            
+            foreach(var item in stud)
+            {
+                Console.WriteLine("Studentname : " + item.strudentname);
+                Console.WriteLine("class of student : " + item.classofstudent);
+                Console.WriteLine("section : " + item.section);
+                Console.WriteLine("  ");
+            }
+        }
+    }
+}
+
+
+
+------------------------------------------Subject.cs----------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Mail;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace oops
+{
+    public class Subject
+    {
+        private string _subjectname;
+        public string subjectname
+        {
+            get { return _subjectname; }
+            set { _subjectname = value; }
+        }
+        private int _subjectcode;
+
+        public int subjectcode
+        {
+            get
+            {
+                return _subjectcode;
+            }
+            set
+            {
+                _subjectcode = value;
+            }
+        }
+
+        List<Subject> s = new List<Subject>();
+        
+        public void getsubjectdetails()
+
+        {
+            Subject sm = new Subject();
+          
+            Console.WriteLine("Enter the subjectname");
+            sm.subjectname=Console.ReadLine();
+            Console.WriteLine("Enter the subjectcode");
+            sm.subjectcode = Convert.ToInt32(Console.ReadLine());
+            s.Add(sm);
+        }
+      
+        public void printsubjectdetails()
+        {
+            
+            foreach(var item in s)
+            {
+                Console.WriteLine("Subject Name : "+item.subjectname);
+                Console.WriteLine("Subject Code : "+item.subjectcode);
+                Console.WriteLine("  ");
+            }
+
+
+        }
+    }
+}
+
+
+---------------------------------------Teacher.cs---------------------------------
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace oops
+{
+    public class Teacher
+    {
+        private string _teachername;
+        public string teachername
+        {
+            get { return _teachername; }
+            set { _teachername = value; }
+        }
+
+        private int _classofteacher;
+
+        public int classofteacher
+        {
+            get { return _classofteacher; }
+            set { _classofteacher = value; }
+
+        }
+
+        private string _sectionofteacher;
+
+        public string sectionofteacher
+        {
+            get
+            {
+                return _sectionofteacher;
+            }
+            set
+            {
+                _sectionofteacher = value;
+            }
+        }
+        private string _subjectofteacher;
+
+        public string subjectofteacher
+        {
+            get
+            {
+                return _subjectofteacher;
+            }
+            set
+            {
+                _subjectofteacher = value;
+            }
+        }
+        List<Teacher> t = new List<Teacher>();
+     
+        
+        public void getteacherdetails()
+
+        {
+            Teacher tm = new Teacher();
+
+            Console.WriteLine("Enter the Teacher name :");
+            tm.teachername = Console.ReadLine();
+
+            Console.WriteLine("Enter the class of the Teacher");
+            tm.classofteacher = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter section ofthe Teacher");
+            tm.sectionofteacher = Console.ReadLine();
+            Console.WriteLine("Enter subject ofthe Teacher");
+            tm.subjectofteacher = Console.ReadLine();
+            t.Add(tm);
+
+
+
+
+        }
+        public void printteacberdetails()
+        {
+            
+            foreach(var item in t)
+            {
+                Console.WriteLine("Teachername : " + item.teachername);
+                Console.WriteLine("class of Teacher : " + item.classofteacher);
+                Console.WriteLine("section : " + item.sectionofteacher);
+                Console.WriteLine("Subject : " + item.subjectofteacher);
+                Console.WriteLine("  ");
+            }
+        }
+    }
+}
